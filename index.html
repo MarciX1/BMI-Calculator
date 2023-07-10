@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#5 BMI Calculator | MarciX</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/dcf233daaa.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="title-button-con">
+            <h2 class="title">BMI Calculator</h2>
+
+            <div class="metric-or-imperial">
+                <button class="metric active"><i class="fa-solid fa-m"></i></button>
+                <button class="imperial"><i class="fa-solid fa-i"></i></button>
+            </div>
+
+        </div>
+
+        <div class="inputs-con">
+
+            <div class="metric-con">
+                <div class="cm">
+                    <p class="height">Height</p>
+                    <input type="text" placeholder="Enter your height" maxlength="3" id="inputBox" class="height-cm-input">
+                    <p class="height-cm">cm</p>
+                </div>
+                <div class="kg">
+                    <p class="weight">Weight</p>
+                    <input type="text" placeholder="Enter your weight" maxlength="3" id="inputBox" class="weight-kg-input">
+                    <p class="weight-kg">kg</p>
+                </div>
+                <div><p class="error-metric"></p></div>
+            </div>
+
+            <div class="imperial con">
+                <div class="feet-inc">
+                    <p class="height">Height</p>
+                    <input type="text" placeholder="Enter your height" maxlength="2" id="inputBox" class="height-inch-input">
+                    <p class="height-inc">inches</p>
+                </div>
+                <div class="pounds">
+                    <p class="weight">Weight</p>
+                    <input type="text" placeholder="Enter your weight" maxlength="3" id="inputBox" class="weight-pounds-input">
+                    <p class="weight-pounds">pounds</p>
+                </div>
+                <div><p class="error-imperial"></p></div>
+            </div>
+
+        </div>
+
+        <div class="buttons">
+            <button class="clearBtn">Clear</button>
+            <button class="calculateBtn">Calculate</button>
+        </div>
+
+        <div class="result-con">
+            <p class="result-title">Result</p>
+            <p class="bmi">BMI = <span class="bmi-result">0</span> kg/m<sup>2</sup></p>
+            <div class="bmi-text-result"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
