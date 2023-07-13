@@ -21,7 +21,10 @@ inputBox.forEach((inputBox) => {
         const input = event.target.value;
         const numbersOnly = /^\d*$/;
         if (!numbersOnly.test(input)) {
-            event.target.value = input.replace(/\D/g, '');
+            event.target.value = input.replace(/\D/g, "");
+        }
+        if (input.charAt(0) === "0") {
+            event.target.value = input.replace("0", "")
         }
 
     });
@@ -109,13 +112,13 @@ function bmiTextCalculation(bmi) {
 
 // Delete error message
 error1.addEventListener("click", (event) => {
-    if (event.target.classList.contains("errorButton") || event.target.classList.contains("fa-circle-xmark")) {
+    if (event.target.classList.contains("errorButton")) {
         error1.innerHTML = "";
     }
 });
 
 error2.addEventListener("click", (event) => {
-    if (event.target.classList.contains("errorButton") || event.target.classList.contains("fa-circle-xmark")) {
+    if (event.target.classList.contains("errorButton")) {
         error2.innerHTML = "";
     }
 });

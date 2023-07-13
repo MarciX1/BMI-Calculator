@@ -259,3 +259,7 @@ input:focus {
 .bmi-text-result {
     position: absolute;
 }
+
+.fa-circle-xmark {
+    pointer-events: none;
+}
