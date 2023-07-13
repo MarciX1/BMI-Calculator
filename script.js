@@ -22,8 +22,7 @@ inputBox.forEach((inputBox) => {
         const numbersOnly = /^\d*$/;
         if (!numbersOnly.test(input)) {
             event.target.value = input.replace(/\D/g, "");
-        }
-        if (input.charAt(0) === "0") {
+        } else if (input.charAt(0) === "0") {
             event.target.value = input.replace("0", "")
         }
 
