@@ -32,6 +32,8 @@ clearBtn.addEventListener("click", () => {
     inputBox.forEach((inputValue) => {
         inputValue.value = "";
     });
+    bmiResult.textContent = "0";
+    bmiTextResult.textContent = "";
 });
 
 metric.addEventListener("click", () => {
@@ -70,7 +72,7 @@ calculateBtn.addEventListener("click", () => {
 function calculateInput() {
     if (metric.classList.contains("active")) {
         if ((heightCm.value === "") || (weightKg.value === "")) {
-            error1.innerHTML = `<button class="errorButton"><i class="fa-solid fa-xmark"></i></button> Please fill out the empty field(s)`;
+            error1.innerHTML = `<button class="errorButton"><i class="fa-regular fa-circle-xmark"></i></button><p class="errorText">Please fill out the empty field(s)</p>`;
         } else if (!((heightCm.value === "") && (weightKg.value === ""))) {
             error1.innerHTML = "";
             const bmi = weightKg.value / ((heightCm.value/100) ** 2);
@@ -79,7 +81,7 @@ function calculateInput() {
         }
     } else if (imperial.classList.contains("active")) {
         if ((heightInch.value === "") || (weightPounds.value === "")) {
-            error2.innerHTML = `<button class="errorButton"><i class="fa-solid fa-xmark"></i></button> Please fill out the empty field(s)`;
+            error2.innerHTML = `<button class="errorButton"><i class="fa-regular fa-circle-xmark"></i></button><p class="errorText">Please fill out the empty field(s)</p>`;
         } else if (!((heightInch.value === "") && (weightPounds.value === ""))) {
             error2.innerHTML = "";
             const bmi = (weightPounds.value / (heightInch.value ** 2)) * 703;
@@ -107,13 +109,13 @@ function bmiTextCalculation(bmi) {
 
 // Delete error message
 error1.addEventListener("click", (event) => {
-    if (event.target.classList.contains("errorButton")) {
+    if (event.target.classList.contains("errorButton") || event.target.classList.contains("fa-circle-xmark")) {
         error1.innerHTML = "";
     }
 });
 
 error2.addEventListener("click", (event) => {
-    if (event.target.classList.contains("errorButton")) {
+    if (event.target.classList.contains("errorButton") || event.target.classList.contains("fa-circle-xmark")) {
         error2.innerHTML = "";
     }
 });
