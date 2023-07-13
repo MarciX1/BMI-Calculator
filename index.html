@@ -15,40 +15,40 @@
             <h2 class="title">BMI Calculator</h2>
 
             <div class="metric-or-imperial">
-                <button class="metric active"><i class="fa-solid fa-m"></i></button>
-                <button class="imperial"><i class="fa-solid fa-i"></i></button>
+                <button class="metric active"><i class="fa-solid fa-m"></i><span class="span1"></span><span class="span2"></span></button>
+                <button class="imperial"><i class="fa-solid fa-i"></i><span class="span1"></span><span class="span2"></span></button>
             </div>
 
         </div>
 
         <div class="inputs-con">
 
-            <div class="metric-con">
+            <div class="metric-con activeCon">
                 <div class="cm">
                     <p class="height">Height</p>
-                    <input type="text" placeholder="Enter your height" maxlength="3" id="inputBox" class="height-cm-input">
+                    <input type="text" maxlength="3" id="inputBox" class="height-cm-input">
                     <p class="height-cm">cm</p>
                 </div>
                 <div class="kg">
                     <p class="weight">Weight</p>
-                    <input type="text" placeholder="Enter your weight" maxlength="3" id="inputBox" class="weight-kg-input">
+                    <input type="text" maxlength="3" id="inputBox" class="weight-kg-input">
                     <p class="weight-kg">kg</p>
                 </div>
-                <div><p class="error-metric"></p></div>
+                <div class="error-metric" id="error"></div>
             </div>
 
-            <div class="imperial con">
+            <div class="imperial-con">
                 <div class="feet-inc">
                     <p class="height">Height</p>
-                    <input type="text" placeholder="Enter your height" maxlength="2" id="inputBox" class="height-inch-input">
+                    <input type="text" maxlength="2" id="inputBox" class="height-inch-input">
                     <p class="height-inc">inches</p>
                 </div>
                 <div class="pounds">
                     <p class="weight">Weight</p>
-                    <input type="text" placeholder="Enter your weight" maxlength="3" id="inputBox" class="weight-pounds-input">
+                    <input type="text" maxlength="3" id="inputBox" class="weight-pounds-input">
                     <p class="weight-pounds">pounds</p>
                 </div>
-                <div><p class="error-imperial"></p></div>
+                <div class="error-imperial" id="error"></div>
             </div>
 
         </div>

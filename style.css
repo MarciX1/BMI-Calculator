@@ -1,3 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --white: #f2f2f0;
+    --lime: #a6ed8e;
+    --gray: #456173;
+    --blue: #1b3c59;
+    --txt-color: #222831;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--white);
+}
+
+.container {
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(97,210,180);
+    background: linear-gradient(45deg, rgba(97,210,180,1) 10%, rgba(43,229,166,1) 100%);
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.35);
+    padding: 40px 30px;
+}
+
+.title-button-con {
+    display: grid;
+    place-items: center;
+    gap: 20px;
+}
+
+.title {
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: .5px;
+    line-height: 1;
+    color: var(--txt-color);
+}
+
+.metric-or-imperial {
+    display: flex;
+    gap: 20px;
+}
+
+.metric, .imperial {
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.span1, .span2{
+    content: "";
+    position: absolute;
+    height: 25px;
+    width: 0;
+    background: var(--white);
+    transition: 0.3s ease;
+}
+
+.span1 {
+    top: 0;
+    left: 0;
+    border-radius: 0 50% 0 0;
+}
+
+.span2 {
+    bottom: 0;
+    right: 0;
+    border-radius: 0 0 0 50%;
+}
+
+.metric:hover .span1, .imperial:hover .span1, .metric:hover .span2, .imperial:hover .span2 {
+    width: 100%;
+    z-index: -1;
+}
+
+.metric:hover, .imperial:hover {
+    color: var(--blue);
+    background: transparent;
+    z-index: 0;
+}
+
 .active {
-    background: red;
+    border: 3px solid var(--white);
+    transform: scale(1.15);
+}
+
+.active:hover {
+    border-color: var(--blue);
+}
+
+.inputs-con {
+    display: flex;
+    position: relative;
+}
+
+.metric-con, .imperial-con {
+    width: 300px;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    gap: 20px;
+    padding: 10px 0;
+    display: none;
+    transition: display 0.3s ease;
+}
+
+.activeCon {
+    display: flex;
+}
+
+.cm, .kg, .feet-inc, .pounds {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.height, .weight {
+    font-size: 22px;
+    color: var(--txt-color);
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.height-cm, .weight-kg, .height-inc, .weight-pounds {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .2px;
+    color: var(--white);
+    position: absolute;
+    right: 70px;
+}
+
+input {
+    width: 150px;
+    height: 30px;
+    padding-left: 20px;
+    font-size: 18px;
+    border-radius: 15px;
+    background: var(--txt-color);
+    color: var(--white);
+    border: none;
+    margin-right: 60px;
+}
+
+input:focus {
+    outline: none;
+    border: none;
+    border: 2px solid var(--white);
+}
+
+#error {
+    position: absolute;
+    bottom: -40px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    width: 100%;
+    height: 30px;
+    background: var(--blue);
+    color: var(--txt-color);
+}
+
+.errorButton {
+    
 }

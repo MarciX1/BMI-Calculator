@@ -1,5 +1,7 @@
 const metric = document.querySelector(".metric");
 const imperial = document.querySelector(".imperial");
+const metricCon = document.querySelector(".metric-con");
+const imperialCon = document.querySelector(".imperial-con");
 const inputBox = document.querySelectorAll("#inputBox");
 const clearBtn = document.querySelector(".clearBtn");
 const calculateBtn = document.querySelector(".calculateBtn");
@@ -34,6 +36,8 @@ clearBtn.addEventListener("click", () => {
 
 metric.addEventListener("click", () => {
     if (imperial.classList.contains("active")) {
+        imperialCon.classList.remove("activeCon");
+        metricCon.classList.add("activeCon");
         imperial.classList.remove("active");
         metric.classList.add("active");
         error2.innerHTML = "";
@@ -46,6 +50,8 @@ metric.addEventListener("click", () => {
 
 imperial.addEventListener("click", () => {
     if (metric.classList.contains("active")) {
+        metricCon.classList.remove("activeCon");
+        imperialCon.classList.add("activeCon");
         metric.classList.remove("active");
         imperial.classList.add("active");
         error1.innerHTML = "";
@@ -64,7 +70,7 @@ calculateBtn.addEventListener("click", () => {
 function calculateInput() {
     if (metric.classList.contains("active")) {
         if ((heightCm.value === "") || (weightKg.value === "")) {
-            error1.innerHTML = `<i class="fa-solid fa-xmark"></i> Please fill out the empty field(s)`;
+            error1.innerHTML = `<button class="errorButton"><i class="fa-solid fa-xmark"></i></button> Please fill out the empty field(s)`;
         } else if (!((heightCm.value === "") && (weightKg.value === ""))) {
             error1.innerHTML = "";
             const bmi = weightKg.value / ((heightCm.value/100) ** 2);
@@ -73,7 +79,7 @@ function calculateInput() {
         }
     } else if (imperial.classList.contains("active")) {
         if ((heightInch.value === "") || (weightPounds.value === "")) {
-            error2.innerHTML = `<i class="fa-solid fa-xmark"></i> Please fill out the empty field(s)`;
+            error2.innerHTML = `<button class="errorButton"><i class="fa-solid fa-xmark"></i></button> Please fill out the empty field(s)`;
         } else if (!((heightInch.value === "") && (weightPounds.value === ""))) {
             error2.innerHTML = "";
             const bmi = (weightPounds.value / (heightInch.value ** 2)) * 703;
@@ -98,3 +104,16 @@ function bmiTextCalculation(bmi) {
         bmiTextResult.textContent = "Obesity Class III";
     }
 }
+
+// Delete error message
+error1.addEventListener("click", (event) => {
+    if (event.target.classList.contains("errorButton")) {
+        error1.innerHTML = "";
+    }
+});
+
+error2.addEventListener("click", (event) => {
+    if (event.target.classList.contains("errorButton")) {
+        error2.innerHTML = "";
+    }
+});
